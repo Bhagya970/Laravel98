@@ -26,6 +26,7 @@ class UserController extends Controller
          $user->password = Hash::make($req->password);
         $user->profile_photo_path = $image_name;
         $user->save();
+        $req->session()->put('username',$req->name);
         return redirect('login');
 
     }
@@ -39,6 +40,7 @@ class UserController extends Controller
     {
         $user = new User;
         $user = User::all(); 
+        
       return view('users',['user'=>$user]);
     }
 
