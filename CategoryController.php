@@ -16,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('products');
+          return view('products');
+       
     }
 
     /**
@@ -26,7 +27,9 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+    //    return view('catagories');
+
+        
     }
 
     /**
@@ -35,9 +38,15 @@ class CategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+         $categorylist = new Category;
+        //  $catagorylist = Category::select('name', 'id')->get();
+        // $selectedID = 2;
+        $categorylist->name=$req->category;
+        $categorylist->save();
+       return redirect('products');
+
     }
 
     /**
