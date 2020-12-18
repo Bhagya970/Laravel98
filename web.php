@@ -38,12 +38,5 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('data/edit/{id}', [UserController::class,'edit'])->name('users.edit');
     Route::post('data/update/{id}', [UserController::class,'update'])->name('users.update');
     Route::post('/products', [CategoryController::class,'index'])->name('catagories.products');
-
-
-
-
+    Route::post('/catagories', [CategoryController::class,'store'])->name('catagories');
     Route::delete('/data/{id}', [UserController::class,'destroy'])->name('users.destroy');
-
-
-
-});
